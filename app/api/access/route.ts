@@ -7,5 +7,5 @@ const mppx = Mppx.create({
 })
 
 export const GET =
-  mppx.charge({ amount: '0.01', description: 'One-time access fee' })
+  mppx.charge({ amount: '0.01', currency: '0x20C000000000000000000000b9537d11c60E8b50', description: 'One-time access fee' })
   (() => Response.json({ access: true }))
