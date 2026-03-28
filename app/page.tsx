@@ -100,35 +100,6 @@ export default function Home() {
           <path d="M28 0L0 46h20L16 80 48 30H26L28 0z" fill="#d4f520" stroke="#1a1a1a" strokeWidth="2" />
         </svg>
 
-        {/* Vertical side text */}
-        <div className="absolute right-4 sm:right-8 top-1/2 z-10 flex flex-col gap-16 items-center">
-          <span className="vertical-text text-white/80 font-bold text-sm tracking-[0.3em] uppercase">
-            Archive
-          </span>
-          <span className="vertical-text text-white/80 font-bold text-sm tracking-[0.3em] uppercase">
-            Terminal
-          </span>
-        </div>
-
-        {/* Stats bar at bottom of hero */}
-        <div className="relative z-10 mt-auto pb-8 px-6">
-          <div className="flex items-center justify-center gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-black text-white">{fortunes.length}</div>
-              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Fortunes</div>
-            </div>
-            <div className="w-px h-10 bg-white/30" />
-            <div className="text-center">
-              <div className="text-3xl font-black text-white">$0.01</div>
-              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Per Cookie</div>
-            </div>
-            <div className="w-px h-10 bg-white/30" />
-            <div className="text-center">
-              <div className="text-3xl font-black text-white">${(fortunes.length * 0.01).toFixed(2)}</div>
-              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Revenue</div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Fortune Wall */}
