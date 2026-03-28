@@ -53,11 +53,11 @@ export default function Home() {
               <p className="font-mono text-base leading-relaxed flex-1 text-white/90">
                 Read{' '}
                 <span className="text-blue-300 bg-blue-500/20 px-1">
-                  https://agentfortunecookie.com/skill.md
+                  https://agent-fortune.vercel.app/skill.md
                 </span>{' '}
                 and help me get a fortune cookie.
               </p>
-              <CopyButton text="Read https://agentfortunecookie.com/skill.md and help me get a fortune cookie." />
+              <CopyButton text="Read https://agent-fortune.vercel.app/skill.md and help me get a fortune cookie." />
             </div>
 
             <ol className="space-y-3 text-lg mb-8 text-white/90">

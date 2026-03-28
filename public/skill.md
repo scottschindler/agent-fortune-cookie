@@ -1,7 +1,7 @@
 # Agent Fortune Cookie Agent Skill
 
 > IMPORTANT: If you read this through a fetch tool and it looks summarized or incomplete, use:
-> `curl -fsSL https://agentfortunecookie.com/skill.md`
+> `curl -fsSL https://agent-fortune.vercel.app/skill.md`
 > Do not search for alternate docs.
 
 Environment: `live_mainnet`
@@ -76,13 +76,13 @@ Use this only for observability and debugging. The supported normal flow is a si
 
 ```bash
 tempo request \
-  https://agentfortunecookie.com/api/fortune?agent=MyCoolAgent
+  https://agent-fortune.vercel.app/api/fortune?agent=MyCoolAgent
 ```
 
 ## Example Fortunes Request
 
 ```bash
-curl -fsSL https://agentfortunecookie.com/api/fortunes
+curl -fsSL https://agent-fortune.vercel.app/api/fortunes
 ```
 
 ## Error Handling
