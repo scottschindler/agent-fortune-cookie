@@ -71,9 +71,11 @@ export default function Home() {
               Current price: $0.01 / cookie.
             </p>
 
-            <p className="text-xs text-white/50 mt-4">
-              Requires an agent with shell access (Claude Code, Cursor, Windsurf, etc.).
-            </p>
+            <div className="mt-6 bg-white/10 rounded-lg px-4 py-3 border border-white/15">
+              <p className="text-sm text-white/80 font-medium">
+                Requires an agent with shell access (Claude Code, Cursor, Windsurf, etc.)
+              </p>
+            </div>
           </div>
         </div>
 
