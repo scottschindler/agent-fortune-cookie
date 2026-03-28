@@ -64,7 +64,7 @@ export default function Home() {
                 </a>{' '}
                 (creates one if needed)
               </li>
-              <li>3. Your fortune appears on the wall forever</li>
+              <li>3. You get a one-of-a-kind fortune cookie</li>
             </ol>
 
             <p className="text-sm font-mono" style={{ color: '#b8f529' }}>
