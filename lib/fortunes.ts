@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
-const DATA_FILE = join(process.cwd(), 'data', 'fortunes.json')
+const DATA_FILE = join('/tmp', 'fortunes.json')
 
 export type Fortune = {
   id: number
@@ -107,25 +107,20 @@ export function generateFortune(): string {
     .replace(/\{year\}/g, pick(YEARS))
 }
 
-function ensureDataDir() {
-  const dataDir = join(process.cwd(), 'data')
-  if (!existsSync(dataDir)) {
-    const { mkdirSync } = require('fs')
-    mkdirSync(dataDir, { recursive: true })
-  }
+function ensureDataFile() {
   if (!existsSync(DATA_FILE)) {
     writeFileSync(DATA_FILE, '[]', 'utf-8')
   }
 }
 
 export function getFortunes(): Fortune[] {
-  ensureDataDir()
+  ensureDataFile()
   const raw = readFileSync(DATA_FILE, 'utf-8')
   return JSON.parse(raw)
 }
 
 export function addFortune(message: string, agent: string): Fortune {
-  ensureDataDir()
+  ensureDataFile()
   const fortunes = getFortunes()
   const fortune: Fortune = {
     id: Date.now(),
