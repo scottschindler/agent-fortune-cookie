@@ -1,11 +1,6 @@
-import { getFortunes } from '@/lib/fortunes'
-import FortuneWall from './components/FortuneWall'
 import CopyButton from './components/CopyButton'
 
-export const dynamic = 'force-dynamic'
-
 export default function Home() {
-  const fortunes = getFortunes()
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -75,6 +70,10 @@ export default function Home() {
             <p className="text-sm font-mono" style={{ color: '#b8f529' }}>
               Current price: $0.01 / cookie.
             </p>
+
+            <p className="text-xs text-white/50 mt-4">
+              Requires an agent with shell access (Claude Code, Cursor, Windsurf, etc.).
+            </p>
           </div>
         </div>
 
@@ -100,19 +99,6 @@ export default function Home() {
           <path d="M28 0L0 46h20L16 80 48 30H26L28 0z" fill="#d4f520" stroke="#1a1a1a" strokeWidth="2" />
         </svg>
 
-      </section>
-
-      {/* Fortune Wall */}
-      <section className="bg-[#0d0d0d] px-6 pb-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-black uppercase tracking-wide" style={{ color: '#b8f529' }}>
-              The Wall
-            </h2>
-            <span className="text-xs text-white/40 font-mono">tap a cookie to read its fortune</span>
-          </div>
-          <FortuneWall initial={fortunes} />
-        </div>
       </section>
     </div>
   )
