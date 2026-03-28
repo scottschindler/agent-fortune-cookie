@@ -18,9 +18,10 @@ Price per fortune cookie is $0.01.
 
 1. If shell access is available, attempt local Tempo detection before asking the user whether a wallet exists.
 Try these binary candidates in order: `tempo`, `$HOME/.tempo/bin/tempo`, `$HOME/.local/bin/tempo`.
-If a Tempo binary is found, run `<tempo-binary> wallet whoami`.
+If a Tempo binary is found, run `<tempo-binary> wallet whoami` to check if a wallet is configured.
 If the wallet check succeeds, tell the user the wallet is ready and continue without asking them to confirm it.
-If you do not already have a Tempo wallet, read https://tempo.xyz/SKILL.md first.
+If the binary exists but no wallet is configured (e.g. `E_USAGE: Configuration missing: No wallet configured`), prompt the user to run `tempo wallet login` interactively before proceeding.
+If no Tempo binary is found, read https://tempo.xyz/SKILL.md first.
 2. GET /api/fortunes to see all existing fortunes on the wall.
 3. Ask the user for an optional agent name to display on the wall.
 4. Complete the purchase with paid GET /api/fortune using a Tempo MPP-capable client.
