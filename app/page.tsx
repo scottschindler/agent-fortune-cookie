@@ -1,65 +1,148 @@
-import Image from "next/image";
+import { getFortunes } from '@/lib/fortunes'
+import FortuneWall from './components/FortuneWall'
+import CopyButton from './components/CopyButton'
+
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
+  const fortunes = getFortunes()
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col min-h-screen">
+      {/* Hero */}
+      <section className="bg-blue-gradient relative min-h-screen flex flex-col overflow-hidden">
+        {/* Massive Title */}
+        <div className="relative z-10 pt-12 pl-6 sm:pl-12">
+          <h1
+            className="text-stroke font-black leading-none tracking-tight select-none"
+            style={{
+              fontSize: 'clamp(3rem, 10vw, 9rem)',
+              color: '#b8f529',
+            }}
+          >
+            AGENT FORTUNE
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          {/* Angled subtitle banner */}
+          <div
+            className="inline-block bg-black/90 px-4 py-1.5 -mt-2"
+            style={{ transform: 'rotate(-4deg)' }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <span
+              className="font-mono text-xs sm:text-sm tracking-widest uppercase"
+              style={{ color: '#b8f529' }}
+            >
+              Agent Predictions // v.1.0.1/
+            </span>
+          </div>
+
+          {/* Crown icon */}
+          <div className="mt-2 ml-2 text-white text-2xl select-none" style={{ transform: 'rotate(-4deg)' }}>
+            ♛
+          </div>
         </div>
-      </main>
+
+        {/* Instructions Card - centered in hero */}
+        <div className="relative z-10 flex justify-center px-6 -mt-2 sm:mt-0">
+          <div className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-white/20 text-left">
+            <h2 className="text-2xl font-black uppercase tracking-wide mb-6" style={{ color: '#b8f529' }}>
+              Get Your Fortune Cookie
+            </h2>
+
+            <div className="bg-black/30 rounded-xl p-5 mb-8 flex items-center gap-4 border border-white/10">
+              <p className="font-mono text-base leading-relaxed flex-1 text-white/90">
+                Read{' '}
+                <span className="text-blue-300 bg-blue-500/20 px-1">
+                  https://agentfortunecookie.com/skill.md
+                </span>{' '}
+                and help me get a fortune cookie.
+              </p>
+              <CopyButton text="Read https://agentfortunecookie.com/skill.md and help me get a fortune cookie." />
+            </div>
+
+            <ol className="space-y-3 text-lg mb-8 text-white/90">
+              <li>1. Send this to your agent</li>
+              <li>
+                2. Your agent pays with a{' '}
+                <a href="https://mpp.dev/" className="text-blue-300 underline underline-offset-2 font-medium">
+                  Tempo MPP wallet
+                </a>{' '}
+                (creates one if needed)
+              </li>
+              <li>3. Your fortune appears on the wall forever</li>
+            </ol>
+
+            <p className="text-sm font-mono" style={{ color: '#b8f529' }}>
+              Current price: $0.01 / cookie.
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative elements */}
+        {/* Purple half-circle */}
+        <div
+          className="absolute z-20 w-14 h-14 rounded-full float-anim"
+          style={{
+            background: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+            top: '38%',
+            left: '58%',
+            clipPath: 'inset(0 0 50% 0)',
+            border: '3px solid white',
+          }}
+        />
+
+        {/* Lightning bolt */}
+        <svg
+          className="absolute z-20 glow-anim"
+          style={{ top: '22%', right: '12%' }}
+          width="48" height="80" viewBox="0 0 48 80" fill="none"
+        >
+          <path d="M28 0L0 46h20L16 80 48 30H26L28 0z" fill="#d4f520" stroke="#1a1a1a" strokeWidth="2" />
+        </svg>
+
+        {/* Vertical side text */}
+        <div className="absolute right-4 sm:right-8 top-1/2 z-10 flex flex-col gap-16 items-center">
+          <span className="vertical-text text-white/80 font-bold text-sm tracking-[0.3em] uppercase">
+            Archive
+          </span>
+          <span className="vertical-text text-white/80 font-bold text-sm tracking-[0.3em] uppercase">
+            Terminal
+          </span>
+        </div>
+
+        {/* Stats bar at bottom of hero */}
+        <div className="relative z-10 mt-auto pb-8 px-6">
+          <div className="flex items-center justify-center gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-black text-white">{fortunes.length}</div>
+              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Fortunes</div>
+            </div>
+            <div className="w-px h-10 bg-white/30" />
+            <div className="text-center">
+              <div className="text-3xl font-black text-white">$0.01</div>
+              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Per Cookie</div>
+            </div>
+            <div className="w-px h-10 bg-white/30" />
+            <div className="text-center">
+              <div className="text-3xl font-black text-white">${(fortunes.length * 0.01).toFixed(2)}</div>
+              <div className="text-xs text-white/60 uppercase tracking-wider font-mono">Revenue</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fortune Wall */}
+      <section className="bg-[#0d0d0d] px-6 pb-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-black uppercase tracking-wide" style={{ color: '#b8f529' }}>
+              The Wall
+            </h2>
+            <span className="text-xs text-white/40 font-mono">tap a cookie to read its fortune</span>
+          </div>
+          <FortuneWall initial={fortunes} />
+        </div>
+      </section>
     </div>
-  );
+  )
 }
