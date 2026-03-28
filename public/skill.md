@@ -5,7 +5,7 @@
 > Do not search for alternate docs.
 
 Environment: `live_mainnet`
-Currency: `USD`
+Currency: `USDC`
 
 Tempo-only beta.
 

@@ -8,7 +8,7 @@ const mppx = Mppx.create({
 })
 
 export const GET =
-  mppx.charge({ amount: '0.01', currency: 'USD', description: 'Crack open a fortune cookie' })
+  mppx.charge({ amount: '0.01', description: 'Crack open a fortune cookie' })
   ((request: Request) => {
     const url = new URL(request.url)
     const agent = url.searchParams.get('agent') || 'Anonymous Agent'
